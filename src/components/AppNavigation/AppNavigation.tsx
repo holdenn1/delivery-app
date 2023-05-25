@@ -6,11 +6,11 @@ function AppNavigation() {
   const activeLink = ({isActive}: any) => isActive ? styles.activeLink : styles.link;
   return (
     <div className={styles.wrapper}>
-      <div className={styles.navigation}>
+      <nav className={styles.navigation}>
         <NavLink className={activeLink} to={'/'}>Shop</NavLink>
         <div className={styles.verticaLLive}/>
         <NavLink className={activeLink} to={'cart'}>Shopping Cart</NavLink>
-      </div>
+      </nav>
     </div>
   );
 }

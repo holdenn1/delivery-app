@@ -1,0 +1,15 @@
+@import "src/assets/styles/variables";
+
+@mixin shopNavigationLink($bg-col, $fw) {
+  display: block;
+  padding: 18px 12px;
+  border: $primary-border;
+  border-radius: $primary-border-radius;
+  background-color: $bg-col;
+  font-weight: $fw;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  &:hover{
+    background: #d7d9dc;
+  }
+}

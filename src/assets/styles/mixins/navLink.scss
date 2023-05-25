@@ -1,6 +1,8 @@
+@import "src/assets/styles/variables";
+
 @mixin navLink($clo, $b-bot) {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: $fw-title;
   color: $clo;
   padding-bottom: 3px;
   border-bottom: $b-bot;

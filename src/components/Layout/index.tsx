@@ -5,9 +5,11 @@ import AppNavigation from "../AppNavigation/AppNavigation";
 
 function Layout({children}: Children) {
   return (
-    <div className={styles.wrapper}>
-      <AppNavigation/>
-      {children}
+    <div className={styles.layout}>
+      <div className={styles.content}>
+        <AppNavigation/>
+        {children}
+      </div>
     </div>
   );
 }

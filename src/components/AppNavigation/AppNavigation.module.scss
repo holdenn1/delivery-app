@@ -4,16 +4,16 @@
 .wrapper {
   width: 100%;
   height: 60px;
-  border: 1px solid black;
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
   padding: 6px;
   margin-bottom: 6px;
   box-sizing: border-box;
+  grid-area: navApp;
 
   .navigation {
-    width: 280px;
+    width: 360px;
     display: flex;
     justify-content: space-around;
     align-items: center;

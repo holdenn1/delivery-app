@@ -1,6 +1,18 @@
-.wrapper {
-  width: 100%;
+@import "src/assets/styles/variables";
+
+.layout {
   height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+
+  .content {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60px auto;
+    grid-template-columns: minmax(220px, 320px)  auto;
+    grid-template-areas:
+    "navApp navApp"
+    "shopNav shopContent";
+    gap: 16px;
+    padding: $primary-padding;
+    box-sizing: border-box;
+  }
 }

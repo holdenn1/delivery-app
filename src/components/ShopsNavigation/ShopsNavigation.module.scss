@@ -1,0 +1,33 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins/shopNavigationLink";
+
+.wrapper {
+  border: $primary-border;
+  border-radius: $primary-border-radius;
+  grid-area: shopNav;
+  padding: $primary-padding;
+  box-sizing: border-box;
+
+  .titleNav {
+    text-align: center;
+    margin: 16px 0;
+    font-size: $fz-title;
+    font-weight: $fw-title;
+  }
+
+  .nav {
+    .shopsItem {
+      margin-bottom: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .link {
+      @include shopNavigationLink(#fff, 500);
+    }
+
+    .activeLink {
+      @include shopNavigationLink($primary-background-color, 600);
+    }
+  }
+}

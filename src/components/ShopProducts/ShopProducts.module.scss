@@ -1,0 +1,87 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins/flexColumnCenter";
+
+.wrapper {
+  border: $primary-border;
+  border-radius: $primary-border-radius;
+  padding: $primary-padding;
+  grid-area: shopContent;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 340px);
+  grid-auto-rows: 260px;
+  justify-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #636363;
+  }
+
+  .product {
+    width: 340px;
+    height: 260px;
+    overflow: hidden;
+    border: $primary-border;
+    border-radius: $primary-border-radius;
+    padding: $primary-padding;
+    box-sizing: border-box;
+    @include flexColumnCenter;
+    margin: 10px;
+
+    .productImg {
+      width: 300px;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .titleProduct {
+      width: 100%;
+      font-size: $fz-title;
+      font-weight: 500;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .priceAndAddToCart {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .price {
+        font-size: $fz-title;
+      }
+
+      .addToCartBtn {
+        height: 32px;
+        width: 128px;
+        border: $primary-border;
+        border-radius: $primary-border-radius;
+        background: $primary-background-color;
+        font-weight: 500;
+        transition-duration: 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          background: #6d6d6d;
+          color: white;
+        }
+      }
+    }
+  }
+}
