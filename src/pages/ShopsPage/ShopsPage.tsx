@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function ShopsPage() {
   return (
-    <div></div>
+    <div><Link to={'cart'}>to cart</Link></div>
   );
 }
 
