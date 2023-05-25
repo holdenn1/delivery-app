@@ -1,9 +1,14 @@
 import React from 'react';
+import styles from './styles.module.scss'
 import {Children} from './../../types';
+import AppNavigation from "../AppNavigation/AppNavigation";
 
 function Layout({children}: Children) {
   return (
-    <p>{children}</p>
+    <div className={styles.wrapper}>
+      <AppNavigation/>
+      {children}
+    </div>
   );
 }
 
