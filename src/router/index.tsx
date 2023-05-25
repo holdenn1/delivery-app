@@ -3,6 +3,7 @@ import App from "../App";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ShopsPage from "../pages/ShopsPage/ShopsPage";
 import CartPage from "../pages/CartPage/CartPage";
+import ShopProducts from "../components/ShopProducts/ShopProducts";
 
 export const router = createBrowserRouter([
   {
@@ -11,12 +12,17 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
-        index: true,
-        element: <ShopsPage/>
+        path: '/',
+        element: <ShopsPage/>,
+        children: [{
+          path: `:shop`,
+          element: <ShopProducts/>
+        }]
       },
       {
         path: 'cart',
-        element: <CartPage/>
+        element: <CartPage/>,
+
       }
     ]
   }

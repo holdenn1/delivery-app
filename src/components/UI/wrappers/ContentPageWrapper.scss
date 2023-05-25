@@ -1,0 +1,27 @@
+@import "src/assets/styles/variables";
+
+.shop {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: minmax(220px, 320px) auto;
+  grid-template-areas:
+    "navApp navApp"
+    "shopNav shopContent";
+  gap: 16px;
+  padding: $primary-padding;
+  box-sizing: border-box;
+}
+
+.shoppingCart {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "navApp navApp"
+    "form form";
+  gap: 16px;
+  padding: $primary-padding;
+  box-sizing: border-box;
+}

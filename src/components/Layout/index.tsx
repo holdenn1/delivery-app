@@ -1,16 +1,18 @@
 import React from 'react';
-import styles from './styles.module.scss'
 import {Children} from './../../types';
 import AppNavigation from "../AppNavigation/AppNavigation";
+import ContentPageWrapper from "../UI/wrappers/ContentPageWrapper";
+import {useLocation} from 'react-router-dom'
 
 function Layout({children}: Children) {
+  let {pathname} = useLocation();
+
   return (
-    <div className={styles.layout}>
-      <div className={styles.content}>
-        <AppNavigation/>
-        {children}
-      </div>
-    </div>
+    <ContentPageWrapper pathname={pathname}>
+      <AppNavigation/>
+      {children}
+    </ContentPageWrapper>
+
   );
 }
 

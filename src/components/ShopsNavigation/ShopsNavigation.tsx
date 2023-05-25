@@ -8,7 +8,7 @@ function ShopsNavigation() {
   const activeLink = ({isActive}: any) => isActive ? styles.activeLink : styles.link;
 
   const shops: ShopNavigation[] = [
-    {id: 1, shop: 'Big Burger', link: ''},
+    {id: 1, shop: 'Big Burger', link: 'big-burger'},
     {id: 2, shop: 'Pizza Express', link: 'pizza-express'},
     {id: 3, shop: 'Fit Food', link: 'fit-food'},
     {id: 4, shop: 'Best Grill', link: 'best-grill'},

@@ -1,12 +1,12 @@
 import React from 'react';
 import ShopsNavigation from "../../components/ShopsNavigation/ShopsNavigation";
-import ShopProducts from "../../components/ShopProducts/ShopProducts";
+import {Outlet} from 'react-router-dom'
 
 function ShopsPage() {
   return (
     <>
       <ShopsNavigation/>
-      <ShopProducts/>
+      <Outlet/>
     </>
   );
 }

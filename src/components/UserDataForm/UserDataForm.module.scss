@@ -1,0 +1,13 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  height: 100%;
+  border: $primary-border;
+  border-radius: $primary-border-radius;
+  padding: $primary-padding;
+  box-sizing: border-box;
+  grid-area: userData;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
