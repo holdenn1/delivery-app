@@ -7,6 +7,7 @@ import ConfirmOrder from "../ConfirmOrder/ConfirmOrder";
 import {InitialOrderFormValues} from "../../types";
 
 function OrderForm() {
+
   const initialValues: InitialOrderFormValues = {
     name: '',
     email: '',

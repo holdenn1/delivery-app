@@ -3,6 +3,7 @@ import styles from './ShopProducts.module.scss'
 import {useParams} from 'react-router-dom'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {fetchShopProducts} from "../../store/actions/fetchShopProducts";
+import {addToCart} from "../../store/slices/shopSlice";
 
 function ShopProducts() {
   const {shop} = useParams()
@@ -25,7 +26,7 @@ function ShopProducts() {
           <h3 className={styles.titleProduct}>{product.title}</h3>
           <div className={styles.priceAndAddToCart}>
             <span className={styles.price}>{product.price} uah</span>
-            <button className={styles.addToCartBtn}>Add to Cart</button>
+            <button onClick={() => dispatch(addToCart(product))} className={styles.addToCartBtn}>Add to Cart</button>
           </div>
         </div>
       ))}
