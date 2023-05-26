@@ -7,7 +7,7 @@ function AppNavigation() {
   return (
     <div className={styles.wrapper}>
       <nav className={styles.navigation}>
-        <NavLink className={activeLink} to={'/'}>Shop</NavLink>
+        <NavLink className={activeLink} to={'/big-burger'}>Shop</NavLink>
         <div className={styles.verticaLLive}/>
         <NavLink className={activeLink} to={'cart'}>Shopping Cart</NavLink>
       </nav>

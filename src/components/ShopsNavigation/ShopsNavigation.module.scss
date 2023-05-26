@@ -15,7 +15,7 @@
     overflow: auto;
     max-height: 140px;
     &::-webkit-scrollbar {
-      height: 10px;
+      height: 18px;
     }
 
     @include scrollbarStyle;
@@ -58,6 +58,5 @@
         @include shopNavigationLink($primary-background-color, 600);
       }
     }
-
   }
 }

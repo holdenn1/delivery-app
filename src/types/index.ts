@@ -10,7 +10,7 @@ export type ShopNavigation = {
   link: string
 }
 
-type Product = {
+type OrderProduct = {
   productName: string,
   amountProducts: number,
 }
@@ -20,7 +20,14 @@ export type InitialOrderFormValues = {
   email: string,
   phone: string,
   address: string,
-  orderProducts: Product[],
+  orderProducts: OrderProduct[],
   amountOrder: number
+}
+
+export type Product = {
+  id: string
+  title: string
+  price: string
+  cover: string
 }
 
