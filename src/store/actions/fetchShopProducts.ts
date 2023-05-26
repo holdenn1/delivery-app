@@ -9,7 +9,7 @@ export const fetchShopProducts = createAsyncThunk<Product[], string>(
   async (id) => {
     try {
       const querySnapshot = await getDocs(collection(db, `${id}`))
-      const data: Product[] = querySnapshot.docs.map((doc) => {
+      const data = querySnapshot.docs.map((doc) => {
         return {...doc.data() as Omit<Product, 'id'>, id: doc.id}
       })
       return data

@@ -3,13 +3,24 @@ import styles from './Orders.module.scss'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import deleteProduct from './../../assets/icons/icons8-delete-30.png';
 import {Field} from 'formik';
-import {deleteFromCart} from "../../store/slices/shopSlice";
+import {deleteFromCart, handleAmountProduct} from "../../store/slices/shopSlice";
+import {Product, ProductInCart} from "../../types";
 
 function Orders() {
 
   const dispatch = useAppDispatch()
 
   const {orderProducts} = useAppSelector(state => state.shop)
+
+  function handleAmount(e: React.ChangeEvent<HTMLInputElement>, product: ProductInCart) {
+    const newAmountValue = +e.target.value
+    const isAdd = +e.target.valueAsNumber
+
+    if (newAmountValue > 0) {
+      dispatch(handleAmountProduct({product, newAmountValue, isAdd}))
+    }
+  }
+
   return (
     <div className={styles.wrapper}>
       {orderProducts.length ? (
@@ -27,7 +38,11 @@ function Orders() {
                 <h3 className={styles.productName}>{product.title}</h3>
                 <span className={styles.productPrice}>Price: {product.price} uah</span>
               </div>
-              <Field className={styles.amount} type="number"/>
+              <input
+                className={styles.amount}
+                type="number"
+                value={product.amount}
+                onChange={(e) => handleAmount(e, product)}/>
             </div>
           </div>
         ))

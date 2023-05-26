@@ -1,11 +1,17 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Product} from "../../types";
+import {Product, ProductInCart} from "../../types";
 import {fetchShopProducts} from "../actions/fetchShopProducts";
 import {notify} from "../../components/Toast";
 
 type Shop = {
   products: Product[],
-  orderProducts: Product[]
+  orderProducts: ProductInCart[]
+}
+
+type HandleAmount = {
+  product: ProductInCart,
+  newAmountValue: number
+  isAdd: number
 }
 
 const initialState: Shop = {
@@ -20,7 +26,7 @@ const shopSlice = createSlice({
     addToCart(state, action: PayloadAction<Product>) {
       const isOrder = state.orderProducts.some(product => product.id === action.payload.id)
       if (!isOrder) {
-        state.orderProducts.push(action.payload)
+        state.orderProducts.push({...action.payload, amount: 1, sumAmountProducts: +action.payload.price})
         notify('The product has been added to the cart', 'success')
       } else {
         notify('You have already added this product to the cart', 'warning')
@@ -30,6 +36,24 @@ const shopSlice = createSlice({
     deleteFromCart(state, action: PayloadAction<Product>) {
       state.orderProducts = state.orderProducts.filter(product => product.id !== action.payload.id)
       notify('The order has been deleted', 'success')
+    },
+    handleAmountProduct(state, action: PayloadAction<HandleAmount>) {
+      if(action.payload.isAdd > action.payload.product.amount){
+        state.orderProducts.forEach(order => {
+          if (order.id === action.payload.product.id) {
+            order.amount = +action.payload.newAmountValue
+            order.sumAmountProducts += +order.price
+          }
+        })
+      }else {
+        state.orderProducts.forEach(order => {
+          if (order.id === action.payload.product.id) {
+            order.amount = +action.payload.newAmountValue
+            order.sumAmountProducts -= +order.price
+          }
+        })
+      }
+
     }
   },
   extraReducers: builder => {
@@ -39,5 +63,5 @@ const shopSlice = createSlice({
       })
   }
 })
-export const {addToCart, deleteFromCart} = shopSlice.actions;
+export const {addToCart, deleteFromCart, handleAmountProduct} = shopSlice.actions;
 export default shopSlice.reducer;

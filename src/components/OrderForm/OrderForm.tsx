@@ -13,17 +13,21 @@ function OrderForm() {
     email: '',
     phone: '',
     address: '',
-    orderProducts: [{
-      productName: '',
-      amountProducts: 0,
-    }],
-    amountOrder: 0
   }
+
   return (
     <>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, {resetForm}) => console.log(values)}
+        onSubmit={(values, {resetForm}) => console.log(
+          {
+            ...values,
+            orderProducts: [{
+              productName: '',
+              amountProducts: 0,
+            }],
+          }
+        )}
       >
         {(props) => (
           <Form className={styles.orderForm}>
