@@ -1,5 +1,6 @@
 @import "src/assets/styles/variables";
 @import "src/assets/styles/mixins/shopNavigationLink";
+@import "src/assets/styles/mixins/scrollbarStyle";
 
 .wrapper {
   border: $primary-border;
@@ -7,27 +8,56 @@
   grid-area: shopNav;
   padding: $primary-padding;
   box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: auto;
+    max-height: 140px;
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    @include scrollbarStyle;
+  }
 
   .titleNav {
     text-align: center;
     margin: 16px 0;
     font-size: $fz-title;
     font-weight: $fw-title;
+    @media screen and (max-width: 768px) {
+      margin-right: 20px;
+    }
   }
 
   .nav {
-    .shopsItem {
-      margin-bottom: 20px;
-      text-align: center;
-      overflow: hidden;
+    width: 100%;
+
+    .shopsList {
+      @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .shopsItem {
+        min-width: 80px;
+        margin-bottom: 20px;
+        text-align: center;
+        overflow: hidden;
+        @media screen and (max-width: 768px) {
+          margin: 0 4px;
+        }
+      }
+
+      .link {
+        @include shopNavigationLink(#fff, 500);
+      }
+
+      .activeLink {
+        @include shopNavigationLink($primary-background-color, 600);
+      }
     }
 
-    .link {
-      @include shopNavigationLink(#fff, 500);
-    }
-
-    .activeLink {
-      @include shopNavigationLink($primary-background-color, 600);
-    }
   }
 }

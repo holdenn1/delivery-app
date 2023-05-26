@@ -1,0 +1,35 @@
+@import "src/assets/styles/variables";
+
+.btnContainer {
+  grid-area: confirmOrder;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  .totalPrice {
+    margin-right: 120px;
+    font-size: $fz-title;
+    font-weight: 500;
+    @media screen and (max-width: 540px) {
+      margin-right: 20px;
+    }
+
+  }
+
+  .btn {
+    width: 280px;
+    height: 40px;
+    border: $primary-border;
+    border-radius: $primary-border-radius;
+    font-size: $fz-title;
+    font-weight: $fw-title;
+    transition-duration: 0.5s;
+    margin-bottom: 20px;
+
+    &:hover {
+      cursor: pointer;
+      background: #6d6d6d;
+      color: white;
+    }
+  }
+}

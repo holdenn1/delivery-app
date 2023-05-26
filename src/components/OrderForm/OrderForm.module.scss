@@ -1,0 +1,28 @@
+@import "src/assets/styles/variables";
+
+.orderForm {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  height: calc(100vh - 120px);
+  grid-template-areas:
+    "userData order"
+    "userData order"
+    "userData order"
+    "confirmOrder confirmOrder";
+  gap: 20px;
+  @media screen and (max-width: 920px) {
+    grid-area: form;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+
+    height: 100vh;
+    grid-template-areas:
+    "userData userData"
+    "order order"
+    "confirmOrder confirmOrder";
+    gap: 20px;
+  }
+}

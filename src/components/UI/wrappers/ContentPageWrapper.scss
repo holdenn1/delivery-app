@@ -11,6 +11,19 @@
   gap: 16px;
   padding: $primary-padding;
   box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60px auto;
+    grid-template-columns: minmax(220px, 320px) auto;
+    grid-template-areas:
+    "navApp navApp"
+    "shopNav shopNav "
+    "shopContent shopContent";
+    gap: 16px;
+    padding: $primary-padding;
+    box-sizing: border-box;
+  }
 }
 
 .shoppingCart {
