@@ -5,6 +5,7 @@ import UserDataForm from "../UserDataForm/UserDataForm";
 import Orders from "../Orders/Orders";
 import ConfirmOrder from "../ConfirmOrder/ConfirmOrder";
 import {InitialOrderFormValues} from "../../types";
+import validateSchema from "../../utils/validate/validateSchema";
 
 function OrderForm() {
 
@@ -19,6 +20,7 @@ function OrderForm() {
     <>
       <Formik
         initialValues={initialValues}
+        validationSchema={validateSchema}
         onSubmit={(values, {resetForm}) => console.log(
           {
             ...values,

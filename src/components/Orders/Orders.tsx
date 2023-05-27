@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './Orders.module.scss'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
-import deleteProduct from './../../assets/icons/icons8-delete-30.png';
-import {Field} from 'formik';
+import deleteProduct from './../../assets/icons/icons8-delete-90.png';
 import {deleteFromCart, handleAmountProduct} from "../../store/slices/shopSlice";
-import {Product, ProductInCart} from "../../types";
+import { ProductInCart} from "../../types";
 
 function Orders() {
 
@@ -43,6 +42,7 @@ function Orders() {
                 type="number"
                 value={product.amount}
                 onChange={(e) => handleAmount(e, product)}/>
+
             </div>
           </div>
         ))
