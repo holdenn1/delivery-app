@@ -22,14 +22,15 @@ export type Product = {
   title: string
   price: number
   cover: string
+  shop:string
 }
 
 export type ProductInCart = {
   id: string
   title: string
   price: number
-  sumAmountProducts: number
   cover: string
   amount: number
+  shop:string
 }
 

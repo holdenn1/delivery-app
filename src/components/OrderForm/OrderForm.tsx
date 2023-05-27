@@ -13,7 +13,7 @@ import {cleanOrder} from "../../store/slices/shopSlice";
 
 function OrderForm() {
 
-  const {orderProducts, amountOrder} = useAppSelector(state => state.shop)
+  const {orderProducts} = useAppSelector(state => state.shop)
   const dispatch = useAppDispatch();
 
   const initialValues: InitialOrderFormValues = {
@@ -30,7 +30,6 @@ function OrderForm() {
       dispatch(submitOrder({
         ...values,
         orderProducts,
-        amountOrder
       }))
       resetForm()
       dispatch(cleanOrder())

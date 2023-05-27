@@ -5,7 +5,6 @@ import {InitialOrderFormValues, ProductInCart} from "../../types";
 
 type SubmitOrder = InitialOrderFormValues & {
   orderProducts: ProductInCart[],
-  amountOrder: number
 }
 
 export const submitOrder = createAsyncThunk<void, SubmitOrder>(

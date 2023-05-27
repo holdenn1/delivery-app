@@ -32,7 +32,7 @@ function ShopsNavigation() {
               <NavLink
                 className={activeLink}
                 onClick={(e) => {
-                  if (orderProducts.length) {
+                  if (orderProducts.find(product => product.shop !== shop.shop)) {
                     e.preventDefault()
                     notify('You can only order from one store', 'warning')
                   }

@@ -3,7 +3,7 @@ import styles from './ShopProducts.module.scss'
 import {useParams} from 'react-router-dom'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {fetchShopProducts} from "../../store/actions/fetchShopProducts";
-import {addToCart, sumOrder} from "../../store/slices/shopSlice";
+import {addToCart} from "../../store/slices/shopSlice";
 import {Product} from "../../types";
 
 function ShopProducts() {
@@ -20,7 +20,6 @@ function ShopProducts() {
 
   function addProductToCart(product: Product) {
     dispatch(addToCart(product))
-    dispatch(sumOrder())
   }
 
   return (
