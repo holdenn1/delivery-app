@@ -3,9 +3,11 @@ import {Product, ProductInCart} from "../../types";
 import {fetchShopProducts} from "../actions/fetchShopProducts";
 import {notify} from "../../components/Toast";
 
+
 type Shop = {
   products: Product[],
-  orderProducts: ProductInCart[]
+  orderProducts: ProductInCart[],
+  amountOrder: number
 }
 
 type HandleAmount = {
@@ -16,7 +18,8 @@ type HandleAmount = {
 
 const initialState: Shop = {
   products: [],
-  orderProducts: []
+  orderProducts: [],
+  amountOrder: 0
 }
 
 const shopSlice = createSlice({
@@ -38,14 +41,14 @@ const shopSlice = createSlice({
       notify('The order has been deleted', 'success')
     },
     handleAmountProduct(state, action: PayloadAction<HandleAmount>) {
-      if(action.payload.isAdd > action.payload.product.amount){
+      if (action.payload.isAdd > action.payload.product.amount) {
         state.orderProducts.forEach(order => {
           if (order.id === action.payload.product.id) {
             order.amount = +action.payload.newAmountValue
             order.sumAmountProducts += +order.price
           }
         })
-      }else {
+      } else {
         state.orderProducts.forEach(order => {
           if (order.id === action.payload.product.id) {
             order.amount = +action.payload.newAmountValue
@@ -53,7 +56,13 @@ const shopSlice = createSlice({
           }
         })
       }
-
+    },
+    sumOrder(state) {
+      state.amountOrder = state.orderProducts.reduce(
+        (acum, cur) => acum + cur.sumAmountProducts, 0);
+    },
+    cleanOrder(state){
+      state.orderProducts = []
     }
   },
   extraReducers: builder => {
@@ -63,5 +72,5 @@ const shopSlice = createSlice({
       })
   }
 })
-export const {addToCart, deleteFromCart, handleAmountProduct} = shopSlice.actions;
+export const {addToCart, deleteFromCart, handleAmountProduct, sumOrder, cleanOrder} = shopSlice.actions;
 export default shopSlice.reducer;

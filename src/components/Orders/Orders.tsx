@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Orders.module.scss'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import deleteProduct from './../../assets/icons/icons8-delete-90.png';
-import {deleteFromCart, handleAmountProduct} from "../../store/slices/shopSlice";
-import { ProductInCart} from "../../types";
+import {deleteFromCart, handleAmountProduct, sumOrder} from "../../store/slices/shopSlice";
+import {ProductInCart} from "../../types";
 
 function Orders() {
 
@@ -17,7 +17,13 @@ function Orders() {
 
     if (newAmountValue > 0) {
       dispatch(handleAmountProduct({product, newAmountValue, isAdd}))
+      dispatch(sumOrder())
     }
+  }
+
+  function deleteProductFromCart(product: ProductInCart) {
+    dispatch(deleteFromCart(product))
+    dispatch(sumOrder())
   }
 
   return (
@@ -27,7 +33,7 @@ function Orders() {
           <div className={styles.orderItem} key={product.id}>
             <img
               className={styles.deleteProduct}
-              onClick={() => dispatch(deleteFromCart(product))}
+              onClick={() => deleteProductFromCart(product)}
               src={deleteProduct}
               alt=""/>
             <img className={styles.orderImg}
