@@ -1,11 +1,12 @@
-import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
+import {createHashRouter} from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ShopsPage from "../pages/ShopsPage/ShopsPage";
 import CartPage from "../pages/CartPage/CartPage";
 import ShopProducts from "../components/ShopProducts/ShopProducts";
 
-export const router = createBrowserRouter([
+
+export const router = createHashRouter([
   {
     path: '/',
     element: <App/>,
@@ -22,7 +23,6 @@ export const router = createBrowserRouter([
       {
         path: 'cart',
         element: <CartPage/>,
-
       }
     ]
   }
