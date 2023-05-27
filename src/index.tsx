@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './assets/styles/index.scss';
 import {Provider} from 'react-redux';
 import {RouterProvider} from 'react-router-dom';
+import {persistStore} from 'redux-persist';
+import {PersistGate} from 'redux-persist/integration/react';
 import {router} from "./router";
 import './firebase'
 import {store} from "./store";
+
+let persistor = persistStore(store);
 
 
 const root = ReactDOM.createRoot(
@@ -13,7 +17,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router}/>
+    <PersistGate persistor={persistor}>
+      <RouterProvider router={router}/>
+    </PersistGate>
   </Provider>
 );
 

@@ -8,12 +8,12 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate('/big-burger', { replace: true });
+    navigate('/big-burger', {replace: true});
   }, []);
-  
+
   return (
     <>
-      <ToastContainer />
+      <ToastContainer/>
       <Layout>
         <Outlet/>
       </Layout>

@@ -4,9 +4,7 @@ import OrderForm from "../../components/OrderForm/OrderForm";
 function CartPage() {
 
   return (
-    <>
-      <OrderForm/>
-    </>
+    <OrderForm/>
   );
 }
 

@@ -2,6 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from './../../firebase'
 import {Product} from "../../types";
+import {notify} from "../../components/Toast";
 
 
 export const fetchShopProducts = createAsyncThunk<Product[], string>(
@@ -14,6 +15,7 @@ export const fetchShopProducts = createAsyncThunk<Product[], string>(
       })
       return data
     } catch (e) {
+      notify('Invalid data', 'error')
       throw e
     }
   }

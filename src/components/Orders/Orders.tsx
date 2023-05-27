@@ -48,7 +48,6 @@ function Orders() {
                 type="number"
                 value={product.amount}
                 onChange={(e) => handleAmount(e, product)}/>
-
             </div>
           </div>
         ))

@@ -45,17 +45,30 @@
         margin-bottom: 20px;
         text-align: center;
         overflow: hidden;
+        border: $primary-border;
+        border-radius: $primary-border-radius;
         @media screen and (max-width: 768px) {
           margin: 0 4px;
         }
       }
 
+      .isAddToCart {
+        background-color: #dedede;
+      }
+
+
       .link {
-        @include shopNavigationLink(#fff, 500);
+        @include shopNavigationLink(500);
       }
 
       .activeLink {
-        @include shopNavigationLink($primary-background-color, 600);
+        @include shopNavigationLink(600);
+        background-color: #808080;
+        color: white;
+
+        &:hover {
+          background-color: #808080;
+        }
       }
     }
   }

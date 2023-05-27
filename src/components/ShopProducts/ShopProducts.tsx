@@ -15,7 +15,7 @@ function ShopProducts() {
     if (shop) {
       dispatch(fetchShopProducts(shop))
     }
-  })
+  },[shop])
 
 
   function addProductToCart(product: Product) {

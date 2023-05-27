@@ -18,7 +18,8 @@ function MyTextInput({label, type, placeholder, ...props}: TextInputProps & Fiel
   return (
     <div className={styles.inputWrapper}>
       {!!label && <label className={styles.label} htmlFor={props.name}>{label}</label>}
-      <input className={classNames(styles.input, {[styles.inputError]: meta.error && meta.touched})} type={type}
+      <input className={classNames(styles.input, {[styles.inputError]: meta.error && meta.touched})}
+             type={type}
              placeholder={placeholder} {...field}/>
       {meta.touched && meta.error ? (
         <p className={styles.textError}>{meta.error}</p>

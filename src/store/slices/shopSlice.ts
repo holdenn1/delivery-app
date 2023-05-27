@@ -61,9 +61,10 @@ const shopSlice = createSlice({
       state.amountOrder = state.orderProducts.reduce(
         (acum, cur) => acum + cur.sumAmountProducts, 0);
     },
-    cleanOrder(state){
+    cleanOrder(state) {
       state.orderProducts = []
-    }
+      state.amountOrder = 0
+    },
   },
   extraReducers: builder => {
     builder
